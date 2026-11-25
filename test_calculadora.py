@@ -1,7 +1,7 @@
 
 import unittest
 
-from calculadora import sumar, restar, multiplicar, dividir, potencia
+from calculadora import sumar, restar, multiplicar, dividir, potencia, raiz_cuadrada
 
 
 class TestCalculadora(unittest.TestCase):
@@ -26,6 +26,13 @@ class TestCalculadora(unittest.TestCase):
 
     def test_potencia_exponente_cero(self):
         self.assertEqual(potencia(5, 0), 1)
+        
+    def test_raiz_cuadrada(self):
+        self.assertEqual(raiz_cuadrada(25), 5)
+
+    def test_raiz_cuadrada_negativa(self):
+        with self.assertRaises(ValueError):
+            raiz_cuadrada(-9)
 
 if __name__ == "__main__":
     unittest.main()
